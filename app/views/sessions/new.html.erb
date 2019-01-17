@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-1">
         <% if !current_user %>
-            <%= form_tag '/login' do %>
+            <%= form_tag([:session], method: "create") do %>
 
                 <div class="form-group">
                     Email: <%= text_field_tag :email %>
