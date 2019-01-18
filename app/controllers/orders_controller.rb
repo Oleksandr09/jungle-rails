@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
     respond_to do |format|
     if order.valid?
-      UserMailer.confirmation_email(@user).deliver_now
+      UserMailer.confirmation_email(current_user, order).deliver_now  
       empty_cart!
       format.html { redirect_to order, notice: 'Your Order has been placed.'}
     else
