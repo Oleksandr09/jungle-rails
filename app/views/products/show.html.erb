@@ -24,7 +24,17 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
     </div>
+
+  <h4>Please, leave your review</h4>
+    <%= form_for([@product, @product.reviews.build]) do |f| %>
+      Description: <%= f.text_area :description %>
+      Rating: <%= f.select :rating, [1, 2, 3, 4, 5] %>
+      <%= f.submit "Post a review" %>
+    <% end %>
+    
+   <%= render 'review'%>
 
   </article>
 

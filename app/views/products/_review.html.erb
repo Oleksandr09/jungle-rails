@@ -1,0 +1,14 @@
+
+<% @product.reviews.reverse_each do |review| %>
+     <div>
+        <div class="btn-info"><%= review.rating %></div>
+        <div><%= review.description %> </div>
+        <div>
+        <% if review.description%>
+        <%= link_to 'Delete Review', [review.product,review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?'}    %>
+        <% else %>
+        <p>Comments will show up here</p>
+      </div>
+      </div>
+<% end %>
+<% end %>
